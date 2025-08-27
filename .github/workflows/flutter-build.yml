@@ -1,14 +1,18 @@
 name: Build the flutter version of the RustDesk
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
-      upload-artifact:
-        type: boolean
-        default: true
-      upload-tag:
-        type: string
-        default: "nightly"
+      APP_NAME:
+        description: 'Nome do executável (ex: CIADesk)'
+        required: true
+        default: 'CIADesk'
+      RENDEZVOUS_SERVER:
+        description: '187.60.211.191'
+        required: true
+      RS_PUB_KEY:
+        description: 'ls8StStbs2iCvPzLqr7GQfPYYNa6GSXzLP+mZsamzK8='
+        required: true
 
 # NOTE: F-Droid builder script 'flutter/build_fdroid.sh' reads environment
 # variables from this workflow!
